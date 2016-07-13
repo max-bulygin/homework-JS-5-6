@@ -1,0 +1,65 @@
+@import url(reset.css);
+@import url(fontello.css);
+
+body {
+    position: relative;
+    background: #e9f4f8 linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
+    height: 100vh;
+}
+.timer-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-color: #c3dff2;
+    border: 0.0625rem solid #ccc;
+    border-radius: 0.375rem;
+    box-shadow: inset 0.0625rem 0.125rem 0 rgba(255, 255, 255, 0.43), 0 0.125rem 0.375rem black;
+    line-height: 0;
+    font-size: 0;
+}
+.controls {
+    display: inline-block;
+    background: #8fc4e6 linear-gradient(to top, rgba(207, 207, 207, 0.48) 0%, rgba(255, 255, 255, 0.48) 100%);
+    border: 0.0625rem solid #88b5d6;
+    border-radius: 0.3125rem;
+    box-shadow: inset 0.0625rem 0.0625rem 0 rgba(255, 255, 255, 0.69);
+    text-align: center;
+}
+button {
+    width: 2.625rem;
+    height: 2.625rem;
+    margin: 0.3125rem;
+    background-color: #cae9ff;
+    background-image: linear-gradient(to top, transparent 0%, rgba(255, 255, 255, 0.63) 100%);
+    border: 0.0625rem solid #ccc;
+    box-shadow: inset 0.0625rem 0.0625rem 0 white, 0 0.125rem 0.25rem rgba(0, 0, 0, 0.07);
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    color: #174362;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.timer {
+    display: inline-block;
+}
+.time {
+    text-shadow: 0.0625rem 0.0625rem 0 white;
+    color: #184767;
+    font-family: LucidaGrande;
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin: 0 1.25rem;
+    vertical-align: middle;
+}
+.icon-play:before {
+    margin-right: 0;
+}
