@@ -14,7 +14,7 @@ function timeFormatter(timeInMilliseconds) {
     var hours = time.getUTCHours();          //SOMEHOW HOURS START FROM 2. WHY??? Because of Time Offset
     var minutes = time.getMinutes();
     var seconds = time.getSeconds();
-    var millisec = time.getMilliseconds().toString();   //NUMBER DIDN'T WORK ON 00 AND 01
+    var millisec = time.getMilliseconds();
 
     if (hours < 10) {
         hours = "0" + hours;
@@ -28,7 +28,7 @@ function timeFormatter(timeInMilliseconds) {
         seconds = "0" + seconds;
     }
 
-    while (millisec.length < 3) {
+    if (millisec < 100) {
         millisec = "0" + millisec;
     }
 
