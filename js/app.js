@@ -11,7 +11,7 @@ var playPauseButton = document.getElementById("button-play");
 
 function timeFormatter(timeInMilliseconds) {
     var time = new Date(timeInMilliseconds);
-    var hours = time.getHours() - 2;                    //SOMEHOW HOURS START FROM 2. WHY???
+    var hours = time.getUTCHours();          //SOMEHOW HOURS START FROM 2. WHY??? Because of Time Offset
     var minutes = time.getMinutes();
     var seconds = time.getSeconds();
     var millisec = time.getMilliseconds().toString();   //NUMBER DIDN'T WORK ON 00 AND 01
@@ -28,7 +28,7 @@ function timeFormatter(timeInMilliseconds) {
         seconds = "0" + seconds;
     }
 
-    while (millisec.length < 3) {                       //if (millisec < 100) STATEMENT DIDN'T WORK PROPERLY
+    while (millisec.length < 3) {
         millisec = "0" + millisec;
     }
 
@@ -37,8 +37,7 @@ function timeFormatter(timeInMilliseconds) {
 
 function update() {
     time += delta();
-    var formattedTime = timeFormatter(time);
-    timerOutput.innerHTML = formattedTime;
+    timerOutput.innerHTML = timeFormatter(time);
 }
 function delta() {
     var now = Date.now();
@@ -55,7 +54,7 @@ var startStop = function () {
         atStartPoint = Date.now();
         interval = setInterval(update, 50);
         //Change the icon to Pause
-        playPauseButton.innerHTML = "<i class=\"icon-pause\"></i>";
+        playPauseButton.innerHTML = '<i class="icon-pause"></i>';
         isRunning = true;
     }
     else {
@@ -63,11 +62,11 @@ var startStop = function () {
         clearInterval(interval);
         interval = null;
         //Change the icon back to Play
-        playPauseButton.innerHTML = "<i class=\"icon-play\"></i>";
+        playPauseButton.innerHTML = '<i class="icon-play"></i>';
         isRunning = false;
     }
 
-}
+};
 
 //Reset timer
 
@@ -76,11 +75,12 @@ var resetTimer = document.getElementById("button-stop");
 var reset = function () {
     //Reset timer to initial state
     time = 0;
+    clearInterval(interval);
     timerOutput.innerHTML = "00:00:00.000";
     //Change the icon back to Play
-    playPauseButton.innerHTML = "<i class=\"icon-play\"></i>";
+    playPauseButton.innerHTML = '<i class="icon-play"></i>';
     isRunning = false;
-}
+};
 
 playPauseButton.onclick = startStop;
 
